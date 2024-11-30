@@ -8,18 +8,7 @@ logging:
     org.hibernate.type.descriptor.sql.BasicBinder: trace
 
 spring:
-  mail:
-    host: smtp.naver.com
-    port: 587
-    username: william7872ksh@naver.com
-    password: bnn3570jhk7872!
-    protocol: smtp
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls.enable: true
-          ssl.trust: smtp.naver.com
+
 
   #
   datasource:
