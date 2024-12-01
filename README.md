@@ -2,6 +2,9 @@
 
  # LMS (Learning Management System)
 
+ ![1](https://github.com/user-attachments/assets/ccd5a8e4-081d-42d2-8ee1-be0fca5a63bf)
+
+
 > **학습 관리 시스템 (LMS)**  
 > 이 프로젝트는 학생과 교수 간의 효율적인 소통과 학습 환경을 제공하기 위한 웹 기반 학습 관리 시스템입니다. 사용자 친화적인 UI와 기능을 통해 강의 자료 공유, 학습 관리, 강의 조회 등 다양한 기능을 제공합니다.
 
