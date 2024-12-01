@@ -5,19 +5,58 @@
     <title>회원 정보</title>
 
     <style>
-        .list table {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            width: 90%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
             width: 100%;
             border-collapse: collapse;
         }
-        .list table th, .list table td {
-            border:solid 1px #000;
+
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
         }
 
-        p.nothing {
+        h1 {
             text-align: center;
-            padding: 100px;
+            margin-bottom: 20px;
         }
-
+    </style>
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
