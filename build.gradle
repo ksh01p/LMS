@@ -50,12 +50,6 @@ dependencies {
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation group: 'commons-io', name: 'commons-io', version: '2.13.0'
 
-    // 이메일 전송을 위함
-    // https://mvnrepository.com/artifact/com.sun.mail/javax.mail
-    //implementation 'org.springframework.boot:spring-boot-starter-mail'
-    //implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
-    implementation 'com.sun.mail:jakarta.mail:2.0.1'
-    implementation 'org.springframework.boot:spring-boot-starter-mail'
 
     // 시큐리티 사용을 위함
     implementation 'org.springframework.boot:spring-boot-starter-security'

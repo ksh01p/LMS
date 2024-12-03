@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강의 업로드</title>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/index">메인</a>
+    <a href="/login">로그인</a>
+    <a href="/list">강의 목록</a>
+    <a href="/assignment">과제 제출</a>
+    <a href="/upload">강의 업로드</a>
+    <a href="/announcement">공지사항</a>
+  </nav>
+</header>
+<main>
+  <h1>강의 업로드</h1>
+  <form id="uploadForm">
+    <label for="title">강의 제목:</label>
+    <input type="text" id="title" name="title" required>
+    <label for="url">YouTube URL:</label>
+    <input type="url" id="url" name="url" required>
+    <button type="submit">업로드</button>
+  </form>
+</main>
+
+<script>
+  document.getElementById('uploadForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const title = document.getElementById('title').value;
+    const url = document.getElementById('url').value;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/api/lectures/add", true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          alert("강의 업로드 성공");
+          window.location.href = "/list.html";
+        } else {
+          alert("업로드 실패");
+        }
+      }
+    };
+    xhr.send(JSON.stringify({ title, youtubeUrl: url }));
+  });
+</script>
+</body>
+</html>

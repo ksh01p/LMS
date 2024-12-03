@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/index">메인</a>
+        <a href="/login">로그인</a>
+        <a href="/list">강의 목록</a>
+        <a href="/assignment">과제 제출</a>
+        <a href="/upload">강의 업로드</a>
+        <a href="/announcement">공지사항</a>
+    </nav>
+</header>
+<main>
+    <h1>공지사항</h1>
+    <div id="announcementList"></div>
+</main>
+
+<script>
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "/api/announcements", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const announcements = JSON.parse(xhr.responseText);
+            const announcementList = document.getElementById('announcementList');
+            announcements.forEach(announcement => {
+                const item = document.createElement('div');
+                item.classList.add('announcement-item');
+                item.innerHTML = `<h3>${announcement.title}</h3><p>${announcement.content}</p>`;
+                announcementList.appendChild(item);
+            });
+        }
+    };
+    xhr.send();
+</script>
+</body>
+</html>

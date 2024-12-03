@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS 로그인</title>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/index">메인</a>
+    <a href="/login">로그인</a>
+    <a href="/list">강의 목록</a>
+    <a href="/assignment">과제 제출</a>
+    <a href="/upload">강의 업로드</a>
+    <a href="/announcement">공지사항</a>
+  </nav>
+</header>
+<main>
+  <h1>로그인</h1>
+  <form id="loginForm">
+    <label for="username">ID:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">로그인</button>
+  </form>
+</main>
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/api/users/login", true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          alert("로그인 성공");
+          window.location.href = "/index.html";
+        } else {
+          alert("로그인 실패");
+        }
+      }
+    };
+    xhr.send(JSON.stringify({ username, password }));
+  });
+</script>
+</body>
+</html>
